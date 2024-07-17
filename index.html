@@ -9,22 +9,33 @@
             height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrollbars */
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(120deg, #34d399, #3b82f6);
-            animation: gradientBackground 5s infinite alternate;
-            flex-direction: column;
+            background: black; /* Fallback background color */
+            color: white;
+            z-index: 1;
+        }
+        
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
         }
 
         h1 {
-            color: white;
+            position: relative;
+            z-index: 2;
             font-size: 4em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             margin-bottom: 50px;
         }
 
         .button-container {
+            position: relative;
+            z-index: 2;
             display: flex;
             gap: 20px;
             margin-bottom: 30px;
@@ -55,22 +66,56 @@
         .red-pill:hover {
             background-color: #a71d2a;
         }
-
-        @keyframes gradientBackground {
-            0% {
-                background: linear-gradient(120deg, #34d399, #3b82f6);
-            }
-            100% {
-                background: linear-gradient(120deg, #3b82f6, #34d399);
-            }
-        }
     </style>
 </head>
 <body>
+    <canvas id="matrix"></canvas>
     <h1>Welcome Stranger</h1>
     <div class="button-container">
         <button class="pill-button blue-pill" onclick="location.href='blue.html'">Blue Pill</button>
         <button class="pill-button red-pill" onclick="location.href='red.html'">Red Pill</button>
     </div>
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = '0123456789ABCDEF'.split('');
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.font = `${fontSize}px arial`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
