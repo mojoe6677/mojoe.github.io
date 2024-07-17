@@ -14,12 +14,45 @@
             align-items: center;
             background: linear-gradient(120deg, #34d399, #3b82f6);
             animation: gradientBackground 5s infinite alternate;
+            flex-direction: column;
         }
 
         h1 {
             color: white;
             font-size: 4em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 50px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .pill-button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .blue-pill {
+            background-color: #007bff;
+        }
+
+        .blue-pill:hover {
+            background-color: #0056b3;
+        }
+
+        .red-pill {
+            background-color: #dc3545;
+        }
+
+        .red-pill:hover {
+            background-color: #a71d2a;
         }
 
         @keyframes gradientBackground {
@@ -34,5 +67,9 @@
 </head>
 <body>
     <h1>Welcome Stranger</h1>
+    <div class="button-container">
+        <button class="pill-button blue-pill" onclick="location.href='blue.html'">Blue Pill</button>
+        <button class="pill-button red-pill" onclick="location.href='red.html'">Red Pill</button>
+    </div>
 </body>
 </html>
