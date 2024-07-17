@@ -89,13 +89,18 @@
         .audio-player input[type="range"] {
             width: 100px;
         }
+
+        #content {
+            text-align: center;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <h1>Welcome Stranger</h1>
     <div class="button-container">
-        <button class="pill-button blue-pill" onclick="startAudio(); location.href='blue.html'">Blue Pill</button>
-        <button class="pill-button red-pill" onclick="startAudio(); location.href='red.html'">Red Pill</button>
+        <button class="pill-button blue-pill" onclick="loadContent('blue.html')">Blue Pill</button>
+        <button class="pill-button red-pill" onclick="loadContent('red.html')">Red Pill</button>
     </div>
     <div class="audio-player">
         <button id="play-pause" onclick="togglePlayPause()">▶️</button>
@@ -103,12 +108,26 @@
         <span id="current-time">0:00</span> / <span id="duration">0:00</span>
     </div>
     <audio id="audio" src="M.mp3"></audio>
+    <div id="content">
+        <p>Please select a pill to see its content.</p>
+    </div>
     <script>
         const audio = document.getElementById('audio');
         const playPauseButton = document.getElementById('play-pause');
         const seekBar = document.getElementById('seek-bar');
         const currentTimeElement = document.getElementById('current-time');
         const durationElement = document.getElementById('duration');
+        const contentDiv = document.getElementById('content');
+
+        function loadContent(page) {
+            fetch(page)
+                .then(response => response.text())
+                .then(data => {
+                    contentDiv.innerHTML = data;
+                    startAudio();
+                })
+                .catch(error => console.error('Error loading content:', error));
+        }
 
         function startAudio() {
             if (audio.paused) {
