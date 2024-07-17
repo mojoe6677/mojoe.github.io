@@ -75,10 +75,17 @@
         <button class="pill-button blue-pill" onclick="location.href='blue.html'">Blue Pill</button>
         <button class="pill-button red-pill" onclick="location.href='red.html'">Red Pill</button>
     </div>
-    <audio controls autoplay>
+    <audio id="background-music" autoplay loop>
         <source src="M.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('background-music');
+            audio.play().catch(function(error) {
+                console.log('Autoplay was prevented:', error);
+            });
+        });
+    </script>
 </body>
 </html>
