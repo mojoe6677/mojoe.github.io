@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Audio Player</title>
+    <title>Welcome Stranger</title>
     <style>
         body, html {
             height: 100%;
@@ -27,6 +27,7 @@
         .button-container {
             display: flex;
             gap: 20px;
+            margin-bottom: 30px;
         }
 
         .pill-button {
@@ -63,31 +64,6 @@
                 background: linear-gradient(120deg, #3b82f6, #34d399);
             }
         }
-
-        /* Custom Audio Player Styles */
-        .audio-player {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            border-radius: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-top: 30px; /* Added margin-top to create space */
-        }
-
-        .audio-player button {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 1.5em;
-            outline: none;
-        }
-
-        .audio-player input[type="range"] {
-            width: 100px;
-        }
     </style>
 </head>
 <body>
@@ -96,53 +72,5 @@
         <button class="pill-button blue-pill" onclick="location.href='blue.html'">Blue Pill</button>
         <button class="pill-button red-pill" onclick="location.href='red.html'">Red Pill</button>
     </div>
-    <div class="audio-player">
-        <button id="play-pause">▶️</button>
-        <input type="range" id="seek-bar" value="0" min="0">
-        <span id="current-time">0:00</span> / <span id="duration">0:00</span>
-    </div>
-    <audio id="audio" src="M.mp3"></audio>
-    <script>
-        const audio = document.getElementById('audio');
-        const playPauseButton = document.getElementById('play-pause');
-        const seekBar = document.getElementById('seek-bar');
-        const currentTimeElement = document.getElementById('current-time');
-        const durationElement = document.getElementById('duration');
-
-        playPauseButton.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                playPauseButton.textContent = '⏸️';
-            } else {
-                audio.pause();
-                playPauseButton.textContent = '▶️';
-            }
-        });
-
-        audio.addEventListener('timeupdate', () => {
-            const currentTime = Math.floor(audio.currentTime);
-            const minutes = Math.floor(currentTime / 60);
-            const seconds = currentTime % 60;
-            currentTimeElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-
-            const duration = Math.floor(audio.duration);
-            const durationMinutes = Math.floor(duration / 60);
-            const durationSeconds = duration % 60;
-            durationElement.textContent = `${durationMinutes}:${durationSeconds.toString().padStart(2, '0')}`;
-
-            seekBar.max = duration;
-            seekBar.value = audio.currentTime;
-        });
-
-        seekBar.addEventListener('input', () => {
-            audio.currentTime = seekBar.value;
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            audio.play().catch(error => {
-                console.log('Autoplay was prevented:', error);
-            });
-        });
-    </script>
 </body>
 </html>
