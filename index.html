@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My GitHub Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(120deg, #34d399, #3b82f6);
+            animation: gradientBackground 5s infinite alternate;
+        }
+
+        h1 {
+            color: white;
+            font-size: 4em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes gradientBackground {
+            0% {
+                background: linear-gradient(120deg, #34d399, #3b82f6);
+            }
+            100% {
+                background: linear-gradient(120deg, #3b82f6, #34d399);
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to my GitHub Pages site!</h1>
-    <p>This is my index.html file.</p>
+    <h1>Welcome Stranger</h1>
 </body>
 </html>
