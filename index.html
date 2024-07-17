@@ -93,6 +93,7 @@
         #content {
             text-align: center;
             color: white;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -107,7 +108,7 @@
         <input type="range" id="seek-bar" value="0" min="0">
         <span id="current-time">0:00</span> / <span id="duration">0:00</span>
     </div>
-    <audio id="audio" src="M.mp3"></audio>
+    <audio id="audio" src="M.mp3" loop></audio>
     <div id="content">
         <p>Please select a pill to see its content.</p>
     </div>
@@ -124,7 +125,6 @@
                 .then(response => response.text())
                 .then(data => {
                     contentDiv.innerHTML = data;
-                    startAudio();
                 })
                 .catch(error => console.error('Error loading content:', error));
         }
