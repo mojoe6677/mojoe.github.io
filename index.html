@@ -27,6 +27,7 @@
         .button-container {
             display: flex;
             gap: 20px;
+            margin-bottom: 30px;
         }
 
         .pill-button {
@@ -93,11 +94,11 @@
 <body>
     <h1>Welcome Stranger</h1>
     <div class="button-container">
-        <button class="pill-button blue-pill" onclick="location.href='blue.html'">Blue Pill</button>
-        <button class="pill-button red-pill" onclick="location.href='red.html'">Red Pill</button>
+        <button class="pill-button blue-pill" onclick="startAudio(); location.href='blue.html'">Blue Pill</button>
+        <button class="pill-button red-pill" onclick="startAudio(); location.href='red.html'">Red Pill</button>
     </div>
     <div class="audio-player">
-        <button id="play-pause">▶️</button>
+        <button id="play-pause" onclick="togglePlayPause()">▶️</button>
         <input type="range" id="seek-bar" value="0" min="0">
         <span id="current-time">0:00</span> / <span id="duration">0:00</span>
     </div>
@@ -109,7 +110,14 @@
         const currentTimeElement = document.getElementById('current-time');
         const durationElement = document.getElementById('duration');
 
-        playPauseButton.addEventListener('click', () => {
+        function startAudio() {
+            if (audio.paused) {
+                audio.play();
+                playPauseButton.textContent = '⏸️';
+            }
+        }
+
+        function togglePlayPause() {
             if (audio.paused) {
                 audio.play();
                 playPauseButton.textContent = '⏸️';
@@ -117,7 +125,7 @@
                 audio.pause();
                 playPauseButton.textContent = '▶️';
             }
-        });
+        }
 
         audio.addEventListener('timeupdate', () => {
             const currentTime = Math.floor(audio.currentTime);
