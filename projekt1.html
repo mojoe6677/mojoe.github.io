@@ -5,23 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projektbeschreibung: Implementierung eines Failover-Systems mit OPNSense</title>
     <style>
-        body {
+        body, html {
+            height: 100%;
+            margin: 0;
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            background: black; 
+            overflow: hidden; /* Prevent scrollbars */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black; /* Fallback background color */
             color: white;
+            flex-direction: column;
         }
-        h1, h2, h3 {
-            color: #0F0; /* Matrix-style green */
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
         }
+
         .content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 20px;
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1, h2, h3 {
+            color: #34d399; /* Emerald green */
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
+    <canvas id="matrix"></canvas>
     <div class="content">
         <h1>Projektbeschreibung: Implementierung eines Failover-Systems mit OPNSense</h1>
         <h2>Projektübersicht:</h2>
@@ -76,5 +104,47 @@
         <h2>Zusammenfassung:</h2>
         <p>Dieses Projekt demonstriert die erfolgreiche Umsetzung eines Failover-Systems mit OPNSense auf zwei Barebone-Servern, die durch Unbound DNS und Suricata ergänzt wurden. Die Konfiguration und Implementierung dieser Komponenten haben zu einem resilienten und sicheren Netzwerk geführt, das sowohl die Ausfallsicherheit als auch die Sicherheitsanforderungen erfüllt.</p>
     </div>
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = '0123456789ABCDEF'.split('');
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0';
+            ctx.font = `${fontSize}px arial`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
