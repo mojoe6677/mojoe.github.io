@@ -1,131 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Stranger</title>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            overflow: hidden; /* Prevent scrollbars */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: black; /* Fallback background color */
-            color: white;
-            flex-direction: column;
-        }
-        
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-
-        h1 {
-            position: relative;
-            z-index: 2;
-            font-size: 4em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            margin-bottom: 50px;
-        }
-
-        .button-container {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .pill-button {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 25px;
-            color: white;
-            font-size: 1.5em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .blue-pill {
-            background-color: #007bff;
-        }
-
-        .blue-pill:hover {
-            background-color: #0056b3;
-        }
-
-        .red-pill {
-            background-color: #dc3545;
-        }
-
-        .red-pill:hover {
-            background-color: #a71d2a;
-        }
-
-        @keyframes gradientBackground {
-            0% {
-                background: linear-gradient(120deg, #34d399, #3b82f6);
-            }
-            100% {
-                background: linear-gradient(120deg, #3b82f6, #34d399);
-            }
-        }
-    </style>
+    <title>Meine Visitenkarte</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="matrix"></canvas>
-    <h1>Welcome Stranger</h1>
-    <div class="button-container">
-        <button class="pill-button blue-pill" onclick="location.href='blue.html'">Blue Pill</button>
-        <button class="pill-button red-pill" onclick="location.href='red.html'">Red Pill</button>
-    </div>
-    <script>
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const letters = '0123456789ABCDEF'.split('');
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-
-        const drops = [];
-        for (let x = 0; x < columns; x++) {
-            drops[x] = 1;
-        }
-
-        function draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#0F0';
-            ctx.font = `${fontSize}px arial`;
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-
-                drops[i]++;
-            }
-        }
-
-        setInterval(draw, 33);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    </script>
+    <header>
+        <h1>Willkommen auf meiner Seite!</h1>
+        <p>Ich bin [Dein Name], ein [Dein Beruf] mit Leidenschaft für [Deine Fachgebiete].</p>
+    </header>
+    <section id="about">
+        <h2>Über mich</h2>
+        <img src="dein-bild.jpg" alt="Ein Bild von mir">
+        <p>Hier eine kurze Biografie über dich. Erwähne deine Ausbildung, berufliche Erfahrung und Hobbys.</p>
+    </section>
+    <section id="projects">
+        <h2>Meine Projekte</h2>
+        <div class="project-list">
+            <button onclick="window.location.href='projekt1.html'">Projekt 1</button>
+            <button onclick="window.location.href='projekt2.html'">Projekt 2</button>
+            <button onclick="window.location.href='projekt3.html'">Projekt 3</button>
+        </div>
+    </section>
+    <footer>
+        <p>Kontakt: <a href="mailto:deinemail@example.com">deinemail@example.com</a></p>
+    </footer>
 </body>
 </html>
