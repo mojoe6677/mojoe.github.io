@@ -1,105 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
-body {
-    font-family: 'Orbitron', sans-serif;
+body, html {
     margin: 0;
     padding: 0;
-    background-color: #0f0f0f;
-    color: #00ffcc;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 header {
-    background-color: #1a1a1a;
-    color: #00ffcc;
-    padding: 20px 0;
     text-align: center;
-    box-shadow: 0 0 10px #00ffcc;
+    margin-bottom: 50px;
 }
 
 header h1 {
-    margin: 0;
     font-size: 3em;
-    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    color: #0f0;
+    text-shadow: 0 0 10px #0f0;
 }
 
 header p {
-    margin: 10px 0 0;
     font-size: 1.2em;
 }
 
-#about, #projects {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    background-color: #1a1a1a;
-    box-shadow: 0 0 20px #00ffcc;
-    border: 1px solid #00ffcc;
+section {
+    margin: 20px;
+    text-align: center;
 }
 
 #about img {
-    max-width: 150px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    display: block;
-    margin: 0 auto 10px;
-    border: 2px solid #00ffcc;
 }
 
-#projects .project-list {
+.project-list {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-#projects button {
-    background-color: #00ffcc;
-    color: #1a1a1a;
+.project-button {
+    padding: 15px 30px;
     border: none;
-    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #333;
+    color: white;
+    font-size: 1.2em;
     cursor: pointer;
-    margin: 10px;
-    font-size: 1em;
-    box-shadow: 0 0 10px #00ffcc;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s;
+    font-family: 'Orbitron', sans-serif; /* Cyberspace font */
 }
 
-#projects button:hover {
-    background-color: #009999;
-    box-shadow: 0 0 20px #00ffcc;
+.project-button:hover {
+    background-color: #555;
 }
 
 footer {
-    background-color: #1a1a1a;
-    color: #00ffcc;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 0 10px #00ffcc;
-/* Neon text effect */
-h1, h2, p {
-    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc, 0 0 20px #00ffcc, 0 0 25px #00ffcc, 0 0 30px #00ffcc;
-}
-
-/* Button hover animation */
-#projects button:hover {
-    background-color: #009999;
-    box-shadow: 0 0 20px #00ffcc;
-    transform: scale(1.1);
-    transition: transform 0.3s;
-}
-
-/* Adding a background image */
-body {
-    background-image: url('cyberpunk-background.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-/* Smooth transitions for all elements */
-* {
-    transition: all 0.3s ease-in-out;
-}
-
-
+    margin-top: 50px;
+    font-size: 1em;
 }
