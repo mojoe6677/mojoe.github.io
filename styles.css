@@ -127,7 +127,7 @@ body {
     }
 
     #projects button {
-        width: 80%;
+        width: 50%;
         margin: 5px 0;
     }
 }
@@ -146,6 +146,6 @@ body {
     }
 
     #projects button {
-        width: 90%;
+        width: 50%;
     }
 }
