@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-h2   {
-    text-align: center;
-}
-
 body {
     font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #0f0f0f;
     color: #00ffcc;
+    background-image: url('cyberpunk-background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    transition: all 0.3s ease-in-out;
 }
 
 header {
@@ -70,6 +70,8 @@ header p {
 #projects button:hover {
     background-color: #009999;
     box-shadow: 0 0 20px #00ffcc;
+    transform: scale(1.1);
+    transition: transform 0.3s;
 }
 
 footer {
@@ -77,81 +79,18 @@ footer {
     color: #00ffcc;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
+    box-shadow: 0 0 10px #00ffcc;
+    position: relative;
     bottom: 0;
     width: 100%;
-    box-shadow: 0 0 10px #00ffcc;
 }
 
-@media (max-width: 600px) {
-    #projects {
-        padding-bottom: 80px; /* Platz für den Footer */
-    }
-}
-
+/* Neon text effect */
 h1, h2, p {
-    color: #ffffff;
-    text-shadow: 0 0 1px #00ffcc, 0 0 1px #00ffcc, 0 0 2px #00ffcc, 0 0 3px #00ffcc, 0 0 4px #00ffcc, 0 0 5px #00ffcc;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc, 0 0 20px #00ffcc, 0 0 25px #00ffcc, 0 0 30px #00ffcc;
 }
 
-#projects button:hover {
-    background-color: #009999;
-    box-shadow: 0 0 20px #00ffcc;
-    transform: scale(1.1);
-    transition: transform 0.3s;
-}
-
-body {
-    background-image: url('pcb.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-}
-
+/* Smooth transitions for all elements */
 * {
     transition: all 0.3s ease-in-out;
-}
-
-/* Media Queries for Responsive Design */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2em;
-    }
-
-    header p {
-        font-size: 1em;
-    }
-
-    #about, #projects {
-        padding: 10px;
-        margin: 10px auto;
-        max-width: 90%;
-    }
-
-    #projects .project-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #projects button {
-        width: 50%;
-        margin: 5px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    header p {
-        font-size: 0.9em;
-    }
-
-    #about img {
-        max-width: 100px;
-    }
-
-    #projects button {
-        width: 50%;
-    }
 }
