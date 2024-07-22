@@ -105,7 +105,7 @@ h1, h2, p {
             }
 
             h2 {
-                font-size: 10px;
+                font-size: 12px;
             }
 
             h3 {
@@ -113,6 +113,6 @@ h1, h2, p {
             }
 
             p, li {
-                font-size: 8px;
+                font-size: 10px;
             }
         }
