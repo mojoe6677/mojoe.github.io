@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projektbeschreibung: Implementierung eines Failover-Systems mit OPNSense</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top */
+            background: black; /* Fallback background color */
+            color: #34d399; /* Emerald green */
+            overflow: auto;
+            padding: 20px;
+        }
+
+        .content {
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Neon glow effect */
+            margin-bottom: 50px; /* Extra margin at the bottom */
+        }
+
+        h1, h2, h3 {
+            color: #34d399; /* Emerald green */
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Neon glow effect */
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        /* Custom Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #34d399;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2c8b73;
+        }
+
+        /* Fixed background image */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('room.jpg') no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1;
+            filter: brightness(50%);
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-audio" src="bg1music.mp3" autoplay loop></audio>
+    <div class="content">
+        <h1>Projektbeschreibung: Einrichtung eines FreeRADIUS-Servers mit MariaDB als Backend-Datenbank und Daloradius als Benutzeroberfläche</h1>
+        <h2>Projektübersicht:</h2>
+        <p>Im Rahmen dieses Projekts wurde ein hochleistungsfähiger FreeRADIUS-Server implementiert, der MariaDB als robuste Backend-Datenbank nutzt und durch Daloradius als intuitive Benutzeroberfläche ergänzt wird. Ziel des Projekts war die Entwicklung einer effizienten und skalierbaren Lösung zur Authentifizierung und Autorisierung von Netzwerkbenutzern.</p>
+        
+        <h2>Projektziele:</h2>
+        <ul>
+            <li>Implementierung eines zuverlässigen FreeRADIUS-Servers zur Gewährleistung sicherer Authentifizierungs- und Autorisierungsprozesse.</li>
+            <li>Integration von MariaDB als Backend-Datenbank für eine effiziente Verwaltung und Speicherung von Benutzerdaten.</li>
+            <li>Bereitstellung einer benutzerfreundlichen Verwaltungsoberfläche durch Daloradius zur Vereinfachung der Systemadministration.</li>
+            <li>Sicherstellung der hohen Verfügbarkeit und Skalierbarkeit des Authentifizierungssystems.</li>
+        </ul>
+        
+        <h2>Systemkomponenten:</h2>
+        <h3>Hardware:</h3>
+        <ul>
+            <li>Ein leistungsstarker Server zur Ausführung des FreeRADIUS-Systems.</li>
+        </ul>
+        <h3>Software:</h3>
+        <ul>
+            <li><strong>FreeRADIUS:</strong> Eine Open-Source-Lösung zur Netzwerkauthentifizierung und -autorisierung.</li>
+            <li><strong>MariaDB:</strong> Eine hochperformante relationale Datenbank zur Speicherung von Benutzerdaten und Authentifizierungsinformationen.</li>
+            <li><strong>Daloradius:</strong> Eine webbasierte Verwaltungsoberfläche zur intuitiven Verwaltung von FreeRADIUS und Benutzerdaten.</li>
+        </ul>
+        
+        <h2>Implementierungsschritte:</h2>
+        <h3>Installation von FreeRADIUS:</h3>
+        <ul>
+            <li>Installation und Initialkonfiguration des FreeRADIUS-Servers.</li>
+            <li>Anpassung der FreeRADIUS-Konfiguration zur Nutzung von MariaDB als Backend-Datenbank.</li>
+        </ul>
+        <h3>Einrichtung von MariaDB:</h3>
+        <ul>
+            <li>Installation und Konfiguration von MariaDB.</li>
+            <li>Erstellung und Strukturierung der notwendigen Datenbanken und Tabellen für die Benutzerverwaltung.</li>
+        </ul>
+        <h3>Integration und Konfiguration von Daloradius:</h3>
+        <ul>
+            <li>Installation und Konfiguration von Daloradius als webbasiertes Verwaltungstool.</li>
+            <li>Sicherstellung der nahtlosen Integration von Daloradius mit FreeRADIUS und MariaDB.</li>
+        </ul>
+        
+        <h3>Verwaltung von Benutzern und Richtlinien:</h3>
+        <ul>
+            <li>Anlage und Verwaltung von Benutzerkonten und Authentifizierungsrichtlinien über Daloradius.</li>
+            <li>Definition und Implementierung spezifischer Richtlinien zur Netzwerksicherheit und Benutzerautorisierung.</li>
+        </ul>
+        
+        <h3>Test und Validierung:</h3>
+	<ul>
+	    <li>Durchführung umfassender Tests zur Sicherstellung der ordnungsgemäßen Funktion der Authentifizierungs- und Autorisierungsprozesse.</li>
+	    <li>Performance-Tests zur Überprüfung der Skalierbarkeit und Belastbarkeit des Systems.</li>
+	    <li>Simulation von verschiedenen Szenarien zur Validierung der Systemzuverlässigkeit und -sicherheit.</li>
+	</ul>
+
+        <h2>Ergebnisse:</h2>
+        <p>Die erfolgreiche Implementierung dieses Projekts führte zu einem zuverlässigen und sicheren Authentifizierungssystem für Netzwerke. Durch die Nutzung von MariaDB als Backend-Datenbank wurde eine effiziente Verwaltung und schnelle Verarbeitung von Benutzerdaten erreicht. Die Integration von Daloradius als benutzerfreundliche Oberfläche erleichtert die Systemadministration erheblich und ermöglicht eine einfache Verwaltung von Benutzern und Richtlinien.</p>
+        
+        <h2>Zusammenfassung:</h2>
+        <p>Dieses Projekt demonstriert die erfolgreiche Implementierung eines FreeRADIUS-Servers unter Verwendung von MariaDB als Backend-Datenbank und Daloradius als Verwaltungsoberfläche. Die professionelle Konfiguration und Integration dieser Komponenten haben zu einer robusten, skalierbaren und benutzerfreundlichen Lösung geführt, die den Anforderungen an eine sichere und effiziente Netzwerkauthentifizierung und -autorisierung gerecht wird.</p>
+    </div>
+</body>
+</html>
