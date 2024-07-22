@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projektbeschreibung: Implementierung eines Failover-Systems mit OPNSense</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background: black;
+            color: #34d399;
+            overflow: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .content {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            margin-bottom: 50px;
+            word-wrap: break-word; /* Ensure long words wrap */
+        }
+
+        h1, h2, h3 {
+            color: #34d399;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #34d399;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2c8b73;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('room.jpg') no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1;
+            filter: brightness(50%);
+        }
+        
+        @media (max-width: 800px) {
+            .content {
+                padding: 8px;
+            }
+
+            h1 {
+                font-size: 12px;
+            }
+
+            h2 {
+                font-size: 10px;
+            }
+
+            h3 {
+                font-size: 9px;
+            }
+
+            p, li {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-audio" src="bg2music.mp3" autoplay loop></audio>
+    <div class="content">
+        <h1>Projektbeschreibung: Installation und Konfiguration einer ABUS Secvest Alarmanlage</h1>
+        <h2>Projektübersicht:</h2>
+        <p>Im Rahmen dieses Projekts wurde eine umfassende Sicherheitslösung für ein Unternehmen implementiert, die auf der ABUS Secvest Alarmanlage basiert. Das System umfasst mehrere Komponenten, die miteinander integriert wurden, um eine zuverlässige und bedienungsfreundliche Alarmanlage zu schaffen.</p>
+        
+        <h2>Projektziele:</h2>
+        <ul>
+            <li>Einrichtung einer zentralen Alarmanlage mit zuverlässiger Überwachung.</li>
+            <li>Integration von Bewegungsmeldern, Öffnungsmeldern und einem smarten Türschloss.</li>
+            <li>Konfiguration der Alarmanlage und Einbindung von Schlüsseln für Mitarbeiter.</li>
+            <li>Ermöglichung des Fernzugriffs über eine mobile App und Web-Oberfläche.</li>
+        </ul>
+        
+        <h2>Systemkomponenten:</h2>
+        <h3>Hardware:</h3>
+        <ul>
+            <li>ABUS Secvest Alarmzentrale</li>
+	    <li>Sechs ABUS Bewegungsmelder für die Überwachung von Innenräumen.</li>
+	    <li>Vier ABUS Öffnungsmelder zur Sicherung von Türen und Fenstern.</li>
+	    <li>ABUS Funkfernbedienung für die einfache Steuerung der Alarmanlage.</li>
+	    <li>ABUS Smartes Türschloss für zusätzlichen Schutz und einfache Zugangskontrolle.</li>
+        </ul>
+        <h3>Software:</h3>
+        <ul>
+            <li><strong>Mobile App:</strong> ABUS Secvest App zur Fernsteuerung und Überwachung der Alarmanlage.</li>
+            <li><strong>Web-Oberfläche:</strong> WebUI für die Konfiguration und Verwaltung der Alarmanlage.</li>
+        </ul>
+        
+        <h2>Implementierungsschritte:</h2>
+        <h3>Installation der Hardware:</h3>
+        <ul>
+            <li>Installation der ABUS Secvest Alarmzentrale an einem zentralen und geschützten Ort.</li>
+            <li>Platzierung der sechs Bewegungsmelder an strategischen Punkten innerhalb des Gebäudes.</li>
+	    <li>Anbringung der vier Öffnungsmelder an Türen und Fenstern, um unbefugtes Öffnen zu detektieren.</li>
+	    <li>Einbindung der Funkfernbedienung zur einfachen Steuerung der Alarmanlage.</li>
+	    <li>Integration des smarten Türschlosses zur Steuerung und Überwachung des Zutritts.</li>
+        </ul>
+        <h3>Konfiguration der Alarmanlage:</h3>
+        <ul>
+            <li>Grundkonfiguration der Alarmzentrale über die Web-Oberfläche.</li>
+            <li>Anlernen der Bewegungsmelder und Öffnungsmelder an die Zentrale.</li>
+	    <li>Definition und Konfiguration von Alarmzonen für gezielte Überwachung.</li>
+	    <li>Erstellung und Verwaltung von Benutzerprofilen und Zugriffsrechten.</li>
+	    <li>Konfiguration des Türschlosses zur Synchronisation mit der Alarmanlage.</li>
+        </ul>
+        <h3>Konfiguration der mobilen App und WebUI:</h3>
+        <ul>
+            <li>Installation und Einrichtung der ABUS Secvest App auf den Mobilgeräten der Mitarbeiter.</li>
+            <li>Verbindung der App mit der Alarmzentrale für Fernzugriff und -steuerung.</li>
+	    <li>Zugang zur WebUI für detaillierte Konfigurationen und Monitoring.</li>
+	    <li>Regelmäßige Wartung und Updates über die Web-Oberfläche.</li>
+        </ul>
+        
+        <h3>Test und Validierung:</h3>
+        <ul>
+            <li>Überprüfung der Funktionalität aller Sensoren und des smarten Türschlosses.</li>
+            <li>Simulation von Alarmereignissen und Überprüfung der Benutzerzugriffe.</li>
+	    <li>Sicherstellung der ordnungsgemäßen Funktion der mobilen App und WebUI.</li>
+        </ul>
+        
+        <h2>Ergebnisse:</h2>
+        <p>Das Unternehmen verfügt nun über ein robustes und zuverlässiges Sicherheitssystem, das durch die Integration mehrerer Sensoren und eines smarten Türschlosses eine umfassende Überwachung gewährleistet. Die Benutzerfreundlichkeit wurde durch die Möglichkeit, die Alarmanlage einfach über die Funkfernbedienung, die mobile App und die WebUI zu steuern, erheblich verbessert. Darüber hinaus ermöglicht der Fernzugriff über die mobile App und WebUI, die Alarmanlage jederzeit und von überall zu überwachen und zu steuern.</p>
+        
+        <h2>Zusammenfassung:</h2>
+        <p>Dieses Projekt zeigt die erfolgreiche Implementierung einer ABUS Secvest Alarmanlage mit mehreren Bewegungsmeldern, Öffnungsmeldern und einem smarten Türschloss. Die Konfiguration der Anlage, der Test- und Validierungsprozess sowie die Bereitstellung von Fernzugriffsmöglichkeiten über die mobile App und WebUI haben die Sicherheitsinfrastruktur des Unternehmens erheblich verbessert.</p>
+    </div>
+</body>
+</html>
