@@ -23,12 +23,14 @@
 
         .content {
             max-width: 100%;
-            width: 800px;
+            width: 100%;
             background: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
+            box-sizing: border-box;
             box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
             margin-bottom: 50px;
+            word-wrap: break-word; /* Ensure long words wrap */
         }
 
         h1, h2, h3 {
@@ -89,18 +91,22 @@
 
             h1 {
                 font-size: 24px;
+                word-wrap: break-word; /* Ensure long words wrap */
             }
 
             h2 {
                 font-size: 20px;
+                word-wrap: break-word; /* Ensure long words wrap */
             }
 
             h3 {
                 font-size: 18px;
+                word-wrap: break-word; /* Ensure long words wrap */
             }
 
             p, li {
                 font-size: 14px;
+                word-wrap: break-word; /* Ensure long words wrap */
             }
         }
     </style>
