@@ -10,6 +10,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     transition: all 0.3s ease-in-out;
+    text-align: center;
 }
 
 header {
@@ -87,7 +88,7 @@ footer {
 
 /* Neon text effect */
 h1, h2, p {
-    text-shadow: 0 0 3px #00ffcc, 0 0 6px #00ffcc, 0 0 7px #00ffcc, 0 0 8px #00ffcc, 0 0 9px #00ffcc, 0 0 10px #00ffcc, text-align: center;
+    text-shadow: 0 0 3px #00ffcc, 0 0 6px #00ffcc, 0 0 7px #00ffcc, 0 0 8px #00ffcc, 0 0 9px #00ffcc, 0 0 10px #00ffcc;
 }
 
 /* Smooth transitions for all elements */
