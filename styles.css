@@ -95,6 +95,10 @@ h1, h2, p {
     transition: all 0.3s ease-in-out;
 }
 
+h2 {
+    text-align: center;
+}
+
 @media (max-width: 800px) {
             .content {
                 padding: 8px;
