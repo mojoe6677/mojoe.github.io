@@ -1,119 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
+/* Grundlegende Stile */
 body {
-    font-family: 'Orbitron', sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #0f0f0f;
-    color: #00ffcc;
-    background-image: url('pcb.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    transition: all 0.3s ease-in-out;
-    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
 }
 
-header {
-    background-color: #1a1a1a;
-    color: #00ffcc;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 0 10px #00ffcc;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 3em;
-    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
-}
-
-header p {
-    margin: 10px 0 0;
-    font-size: 1.2em;
-}
-
-#about, #projects {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    background-color: #1a1a1a;
-    box-shadow: 0 0 20px #00ffcc;
-    border: 1px solid #00ffcc;
-}
-
-#about img {
-    max-width: 150px;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto 10px;
-    border: 2px solid #00ffcc;
-}
-
-#projects .project-list {
+/* Navigation */
+nav {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: /* Ihre ursprüngliche Farbe */;
+    padding: 0 20px;
 }
 
-#projects button {
-    font-family: 'Orbitron', sans-serif;
-    background-color: #00ffcc;
-    color: #1a1a1a;
-    border: none;
-    padding: 10px 20px;
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.burger {
+    display: none;
     cursor: pointer;
-    margin: 10px;
-    font-size: 1em;
-    box-shadow: 0 0 10px #00ffcc;
-    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-#projects button:hover {
-    background-color: #009999;
-    box-shadow: 0 0 20px #00ffcc;
-    transform: scale(1.1);
-    transition: transform 0.3s;
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.3s;
 }
 
-footer {
-    background-color: #1a1a1a;
-    color: #00ffcc;
+/* Hero-Bereich */
+.hero {
+    background-image: url('background.jpg'); /* Fügen Sie ein passendes Hintergrundbild hinzu */
+    background-size: cover;
+    color: #fff;
     text-align: center;
-    padding: 10px 0;
-    box-shadow: 0 0 10px #00ffcc;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    padding: 100px 20px;
 }
 
-/* Neon text effect */
-h1, h2, p {
-    text-shadow: 0 0 1px #00ffcc, 0 0 1.5px #00ffcc, 0 0 1.5px #00ffcc, 0 0 1.5px #00ffcc, 0 0 1.5px #00ffcc, 0 0 1.5px #00ffcc;
+.hero-content .btn {
+    background-color: /* Ihre ursprüngliche Farbe */;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
 }
 
-/* Smooth transitions for all elements */
-* {
-    transition: all 0.3s ease-in-out;
+/* Projektsektion */
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-@media (max-width: 800px) {
-            .content {
-                padding: 8px;
-            }
+.project-item {
+    background-color: #f4f4f4;
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
 
-            h1 {
-                font-size: 5px;
-            }
+.project-item .btn {
+    background-color: /* Ihre ursprüngliche Farbe */;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
 
-            h2 {
-                font-size: 12px;
-            }
+/* Kontaktformular */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+}
 
-            h3 {
-                font-size: 9px;
-            }
+form input, form textarea {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+}
 
-            p, li {
-                font-size: 10px;
-            }
-        }
+form .btn {
+    background-color: /* Ihre ursprüngliche Farbe */;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        height: 100vh;
+        top: 0;
+        background-color: /* Ihre ursprüngliche Farbe */;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .about-content, .project-list {
+        flex-direction: column;
+    }
+}
+
+/* Weitere Stile entsprechend anpassen */
