@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f0f;
+    color: #00ffcc;
+    background-image: url('pcb.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+header {
+    background-color: #1a1a1a;
+    color: #00ffcc;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 0 10px #00ffcc;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+}
+
+#about, #projects {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 20px #00ffcc;
+    border: 1px solid #00ffcc;
+}
+
+#about img {
+    max-width: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 10px;
+    border: 2px solid #00ffcc;
+}
+
+#projects .project-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#projects button {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #00ffcc;
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 1em;
+    box-shadow: 0 0 10px #00ffcc;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#projects button:hover {
+    background-color: #009999;
+    box-shadow: 0 0 20px #00ffcc;
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: #00ffcc;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 0 10px #00ffcc;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Neon text effect */
+h1, h2, p {
+    text-shadow: 0 0 1px #00ffcc, 0 0 1.5px #00ffcc, 0 0 1.5px #00ffcc, 0 0 1.5px #00ffcc, 0 0 1.5px #00ffcc, 0 0 1.5px #00ffcc;
+}
+
+/* Smooth transitions for all elements */
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 800px) {
+            .content {
+                padding: 8px;
+            }
+
+            h1 {
+                font-size: 5px;
+            }
+
+            h2 {
+                font-size: 12px;
+            }
+
+            h3 {
+                font-size: 9px;
+            }
+
+            p, li {
+                font-size: 10px;
+            }
+        }
